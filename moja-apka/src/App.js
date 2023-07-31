@@ -4,7 +4,8 @@ import './App.css';
 function App() {
   return (
    <>
-   <h1>Appka!</h1>
+   <h1>Moja apka!</h1>
+   
    </>
   );
 }
