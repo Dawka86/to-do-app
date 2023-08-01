@@ -1,12 +1,10 @@
-
-import './App.css';
+import { Todoit } from "./componets/Todoit";
 
 function App() {
   return (
-   <>
-   <h1>Moja apka!</h1>
-   
-   </>
+    <>
+      <Todoit />
+    </>
   );
 }
 

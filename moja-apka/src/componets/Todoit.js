@@ -26,7 +26,7 @@ export function Todoit() {
         <label>
           Rzeczy ktore planujesz wykonac:{" "}
           <input value={actToDo} onChange={handleChangeToDo}></input>
-          <button>Dodaj</button>
+          <button className="btn">Dodaj</button>
         </label>
       </form>
       <h2>Zapisane zadania:</h2>
