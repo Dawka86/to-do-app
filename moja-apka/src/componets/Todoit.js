@@ -1,6 +1,5 @@
 import { useState } from "react";
 
-
 export function Todoit() {
   const [individualData, setIndividuaData] = useState([]);
   const [actToDo, setActToDo] = useState("");
@@ -18,6 +17,18 @@ export function Todoit() {
       setActToDo("");
     }
   }
+  function handleTaskComplete(index) {
+    const updatedData = individualData.map((task, i) =>
+      i === index ? { ...task, isDone: true } : task 
+    );
+    setIndividuaData(updatedData);
+  }
+
+  function handleTaskDelete(index) {
+    const updatedData = individualData.filter((task, i) => i !== index);
+    setIndividuaData(updatedData);
+  }
+  
 
   return (
     <>
@@ -31,8 +42,12 @@ export function Todoit() {
       </form>
       <h2>Zapisane zadania:</h2>
       <ul>
-        {individualData.map((person, index) => (
-          <li key={index}>{person.actToDo}</li>
+        {individualData.map((task, index) => (
+          <li key={index}>
+            {task.actToDo}{" "}
+            <button onClick={() => handleTaskComplete(index)}>&#10003;</button>
+            <button onClick={() => handleTaskDelete(index)}>&#10006;</button>
+          </li>
         ))}
       </ul>
     </>
