@@ -18,12 +18,12 @@ export function Todoit() {
     }
   }
   function handleTaskComplete(index) {
-    const updatedData = individualData.map((task, i) =>
-      i === index ? { ...task, isDone: true } : task 
-    );
-    setIndividuaData(updatedData);
+    if (index >= 0 && index < individualData.length) {
+      const updatedData = [...individualData];
+      updatedData[index].isDone = true;
+      setIndividuaData(updatedData);
   }
-
+  }
   function handleTaskDelete(index) {
     const updatedData = individualData.filter((task, i) => i !== index);
     setIndividuaData(updatedData);
@@ -31,7 +31,7 @@ export function Todoit() {
   
 
   return (
-    <>
+    <div className="maineContent">
       <h1>Lista rzeczy do zrobienia:</h1>
       <form onSubmit={handleSummit}>
         <label>
@@ -43,13 +43,13 @@ export function Todoit() {
       <h2>Zapisane zadania:</h2>
       <ul>
         {individualData.map((task, index) => (
-          <li key={index}>
+          <li className="listTask"  key={index}>
             {task.actToDo}{" "}
-            <button onClick={() => handleTaskComplete(index)}>&#10003;</button>
-            <button onClick={() => handleTaskDelete(index)}>&#10006;</button>
+            <button className="btnChose btnApprove" onClick={() => handleTaskComplete(index)}>&#10003;</button>
+            <button className="btnChose btnDelete" onClick={() => handleTaskDelete(index)}>&#10006;</button>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
