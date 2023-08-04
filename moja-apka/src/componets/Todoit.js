@@ -17,12 +17,11 @@ export function Todoit() {
       setActToDo("");
     }
   }
-  function handleTaskComplete(index) {
-    if (index >= 0 && index < individualData.length) {
-      const updatedData = [...individualData];
-      updatedData[index].isDone = true;
-      setIndividuaData(updatedData);
-  }
+  const handleTaskComplete = index => {
+    const newActToDo = [...individualData];
+    newActToDo[index].completed = !newActToDo[index].completed;
+    setIndividuaData(newActToDo);
+  
   }
   function handleTaskDelete(index) {
     const updatedData = individualData.filter((task, i) => i !== index);
@@ -43,9 +42,9 @@ export function Todoit() {
       <h2>Zapisane zadania:</h2>
       <ul>
         {individualData.map((task, index) => (
-          <li className="listTask"  key={index}>
+          <li className="listTask" key={index} style={{textDecoration: task.completed? "line-through" : "none"}}>
             {task.actToDo}{" "}
-            <button className="btnChose btnApprove" onClick={() => handleTaskComplete(index)}>&#10003;</button>
+            <button className="btnChose btnApprove" onClick={() => handleTaskComplete(index)}>{task.completed?  "\uDC4D":"\u2713"}</button>
             <button className="btnChose btnDelete" onClick={() => handleTaskDelete(index)}>&#10006;</button>
           </li>
         ))}
