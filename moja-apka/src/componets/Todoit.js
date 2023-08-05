@@ -34,7 +34,7 @@ export function Todoit() {
       <h1>Lista rzeczy do zrobienia:</h1>
       <form onSubmit={handleSummit}>
         <label>
-          Rzeczy ktore planujesz wykonac:{" "}
+          Zadania do wykonania:{" "}
           <input value={actToDo} onChange={handleChangeToDo}></input>
           <button className="btn">Dodaj</button>
         </label>

@@ -1,4 +1,6 @@
 body {
+  background-image: url(pictures/chimene-gaspar-VQnKZ6S0p3k-unsplash.jpg);
+  background-size: cover;
   margin: 0;
   display: flex;
   padding: 0;
@@ -23,16 +25,23 @@ body {
   background-color: white;
   color: black;
 }
+h1{
+  text-align: center;
+  font-weight: 800;
+  font-style: italic;
+  font-size: xx-large;
+}
 
 
 .maineContent{
   background-color: azure;
   box-shadow: 10px 10px 10px black;
-  margin: 10px;
+  margin: 20px;
   padding: 15px;
   align-items: center;
   width: max-content;
   height: 500px;
+  width: 550px;
   border: 2px black solid;
   border-radius: 6px;
   overflow: scroll;
