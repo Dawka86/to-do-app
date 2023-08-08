@@ -1,4 +1,4 @@
-import { Todoit } from "./componets/Todoit";
+import { Todoit}  from "./componets/Todoit";
 
 function App() {
   return (

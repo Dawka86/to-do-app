@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { Header } from "./MyHeader";
+import Modal from "./Modal";
 
 export function Todoit() {
   const [individualData, setIndividuaData] = useState([]);
   const [actToDo, setActToDo] = useState("");
+  const [openModal, setOpenModal] = useState(false);
+  const [taskToDeleteIndex, setTaskToDeleteIndex] = useState(null);
 
   function handleChangeToDo(e) {
     setActToDo(e.target.value);
@@ -18,17 +21,21 @@ export function Todoit() {
       setActToDo("");
     }
   }
-  const handleTaskComplete = index => {
+  const handleCloseModal = () => {
+    setTaskToDeleteIndex(null);
+    setOpenModal(false);
+  };
+  const handleTaskComplete = (index) => {
     const newActToDo = [...individualData];
     newActToDo[index].completed = !newActToDo[index].completed;
     setIndividuaData(newActToDo);
-  
-  }
-  function handleTaskDelete(index) {
-    const updatedData = individualData.filter((task, i) => i !== index);
+  };
+  const handleConfirmDelete = () => {
+    const updatedData = individualData.filter((task, i) => i !== taskToDeleteIndex);
     setIndividuaData(updatedData);
-  }
-  
+    setTaskToDeleteIndex(null);
+    setOpenModal(false);
+  };
 
   return (
     <div className="maineContent">
@@ -43,13 +50,32 @@ export function Todoit() {
       <h2>Zapisane zadania:</h2>
       <ul>
         {individualData.map((task, index) => (
-          <li className="listTask" key={index} style={{textDecoration: task.completed? "line-through" : "none"}}>
+          <li
+            className="listTask"
+            key={index}
+            style={{ textDecoration: task.completed ? "line-through" : "none" }}
+          >
             {task.actToDo}{" "}
-            <button className="btnChose btnApprove" onClick={() => handleTaskComplete(index)}>{task.completed?  "\uDC4D":"\u2713"}</button>
-            <button className="btnChose btnDelete" onClick={() => handleTaskDelete(index)}>&#10006;</button>
+            <button
+              className="btnChose btnApprove"
+              onClick={() => handleTaskComplete(index)}
+            >
+              {task.completed ? "\uDC4D" : "\u2713"}
+            </button>
+            <button
+              className="btnChose btnDelete"
+              onClick={() => setOpenModal(true)}
+            >
+              &#10006;
+            </button>
           </li>
         ))}
       </ul>
+      {openModal && (
+        <div className="modalBackdrop">
+          <Modal closeModal={handleCloseModal} handleConfirmDelete={handleConfirmDelete} />
+        </div>
+      )}
     </div>
   );
 }
