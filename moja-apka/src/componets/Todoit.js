@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Header } from "./MyHeader";
 
 export function Todoit() {
   const [individualData, setIndividuaData] = useState([]);
@@ -31,7 +32,7 @@ export function Todoit() {
 
   return (
     <div className="maineContent">
-      <h1>Lista rzeczy do zrobienia:</h1>
+      <Header />
       <form onSubmit={handleSummit}>
         <label>
           Zadania do wykonania:{" "}
