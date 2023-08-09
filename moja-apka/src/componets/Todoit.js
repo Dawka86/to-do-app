@@ -42,12 +42,12 @@ export function Todoit() {
       <Header />
       <form onSubmit={handleSummit}>
         <label>
-          Zadania do wykonania:{" "}
+        To do tasks:{" "}
           <input value={actToDo} onChange={handleChangeToDo}></input>
-          <button className="btn">Dodaj</button>
+          <button className="btn">Add</button>
         </label>
       </form>
-      <h2>Zapisane zadania:</h2>
+      <h2>Saved tasks:</h2>
       <ul>
         {individualData.map((task, index) => (
           <li
@@ -65,7 +65,7 @@ export function Todoit() {
             <button
               className="btnChose btnDelete"
               onClick={() => {
-                setTaskToDeleteIndex(index); // Przekazanie indeksu do zmiennej
+                setTaskToDeleteIndex(index); 
                 setOpenModal(true);
               }}
             >
