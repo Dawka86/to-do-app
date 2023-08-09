@@ -64,7 +64,10 @@ export function Todoit() {
             </button>
             <button
               className="btnChose btnDelete"
-              onClick={() => setOpenModal(true)}
+              onClick={() => {
+                setTaskToDeleteIndex(index); // Przekazanie indeksu do zmiennej
+                setOpenModal(true);
+              }}
             >
               &#10006;
             </button>

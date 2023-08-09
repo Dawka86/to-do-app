@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-function Modal({ closeModal, handleConfirmDelete }) {
+function Modal({ closeModal,handleConfirmDelete }) {
   return (
     <div className='modalBackground'>
       <div className='modalContainer'>
@@ -15,10 +15,10 @@ function Modal({ closeModal, handleConfirmDelete }) {
           <p>Do you want to delete this task?</p>
         </div>
         <div className='footer'>
-          <button className='cancelButton' onClick={() => closeModal()}>
+          <button className='btn cancelButton' onClick={() => closeModal()}>
             Cancel
           </button>
-          <button className='continueButton' onClick={handleConfirmDelete}>
+          <button className=' btn continueButton' onClick={handleConfirmDelete}>
             Continue
           </button>
         </div>
