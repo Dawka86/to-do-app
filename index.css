@@ -1,0 +1,72 @@
+body {
+  background-image: url(pictures/chimene-gaspar-VQnKZ6S0p3k-unsplash.jpg);
+  background-size: cover;
+  margin: 0;
+  display: flex;
+  padding: 0;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(162, 197, 252);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn{
+  background-color: black;
+  color: white;
+  width: 120px;
+  height: 30px;
+  border-radius: 5px;
+  outline: white;
+  padding: 5px;
+  cursor: pointer;
+  margin: 10px;
+}
+.btn:hover{
+  background-color: white;
+  color: black;
+}
+h1{
+  text-align: center;
+  font-weight: 800;
+  font-style: italic;
+  font-size: xx-large;
+}
+
+
+.maineContent{
+  background-color: azure;
+  box-shadow: 10px 10px 10px black;
+  margin: 20px;
+  padding: 15px;
+  align-items: center;
+  width: max-content;
+  height: 500px;
+  width: 550px;
+  border: 2px black solid;
+  border-radius: 6px;
+  overflow: scroll;
+}
+.btnChose{
+  margin: 2px;
+  font-size: smaller;
+  box-shadow: 1px 1px 3px rgb(0, 0, 0);
+}
+.btnDelete:hover{
+  color: white;
+  background-color: red;
+  border-radius: 3px;
+}
+.btnApprove:hover{
+  color: white;
+  background-color: green;
+  border-radius: 3px;
+}
+.listTask{
+  margin: 2px;
+  font-style: italic;
+  font-size: medium;
+  color: black;
+}
+.body{
+  text-align: center;
+}
